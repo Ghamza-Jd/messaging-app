@@ -7,10 +7,10 @@ export = {
   username: env.DB_USER,
   password: env.DB_PASS,
   database: env.DB_NAME,
-  entities: ['src/**/**.entity{.ts,.js}'],
-  migrations: ['src/database/migrations/*.ts'],
+  entities: ['src/**/*.entity{.ts,.js}'],
+  migrations: ['src/migrations/*.ts'],
   cli: {
-    migrationsDir: 'src/database/migrations',
+    migrationsDir: 'src/migrations',
   },
   synchronize: false,
 };

@@ -6,6 +6,9 @@
   "scripts": {
     "start": "ts-node -T -r tsconfig-paths/register app.ts",
     "dev": "tsnd -r tsconfig-paths/register app.ts",
+    "migrate:create": "ts-node ./node_modules/typeorm/cli.js migration:create -n",
+    "migrate:up": "ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migrate:down": "ts-node ./node_modules/typeorm/cli.js migration:revert",
     "test": "mocha -r ts-node/register -r tsconfig-paths/register ./__test__/**/*.test.ts --exit",
     "coverage": "nyc --report=text --reporter=text --branches=80 --functions=80 --lines=80 --statements=80 --check-coverage=true npm run test"
   },
