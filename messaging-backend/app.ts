@@ -1,10 +1,11 @@
 import Express from 'express';
 import { config } from 'dotenv';
 
-import { appRoutes } from '&lib/app.routes';
-import { defaultStrategy } from '&middlewares/error/strategies';
-import { handler as errorHandler } from '&utils/handler';
-import { logger } from '&utils/logger';
+import { appRoutes } from '&/src/app.routes';
+import { defaultStrategy } from '&/src/middlewares/error/strategies';
+import { handler as errorHandler } from '&/src/utils/handler';
+import { logger } from '&/src/utils/logger';
+import { initConnection } from './src/config/db';
 
 config();
 
@@ -17,7 +18,8 @@ app.disable('x-powered-by');
 appRoutes(app);
 appErrorHandler(app);
 
-const server = app.listen(port, () => {
+const server = app.listen(port, async () => {
+  await initConnection();
   logger.info(`Server running on port: ${port}`);
 });
 

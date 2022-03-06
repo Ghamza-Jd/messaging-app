@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import { logger } from '&utils/logger';
-import { makeError } from '&utils/makeError';
+import { logger } from '&/src/utils/logger';
+import { makeError } from '&/src/utils/makeError';
 
 import { getHealthService } from '../service/get';
 
