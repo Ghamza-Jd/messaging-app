@@ -1,9 +1,11 @@
+import { ConnectionOptions } from 'typeorm';
+
 const { env } = process;
 
-export = {
+export const ormconfig: ConnectionOptions = {
   host: env.DB_HOST,
   type: 'mysql',
-  port: env.DB_PORT,
+  port: parseInt(env.DB_PORT || '3306'),
   username: env.DB_USER,
   password: env.DB_PASS,
   database: env.DB_NAME,
