@@ -1,10 +1,10 @@
 import Express from 'express';
 import { config } from 'dotenv';
 
-import { appRoutes } from '&lib/app.routes';
-import { defaultStrategy } from '&middlewares/error/strategies';
-import { handler as errorHandler } from '&utils/handler';
-import { logger } from '&utils/logger';
+import { appRoutes } from '&/src/app.routes';
+import { defaultStrategy } from '&/src/middlewares/error/strategies';
+import { handler as errorHandler } from '&/src/utils/handler';
+import { logger } from '&/src/utils/logger';
 
 config();
 
