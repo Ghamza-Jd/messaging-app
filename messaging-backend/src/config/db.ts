@@ -19,3 +19,7 @@ export const initConnection = async () => {
 export const getConnection = (): Connection | undefined => {
   return connection;
 };
+
+export const closeConnection = () => {
+  connection?.close();
+};
