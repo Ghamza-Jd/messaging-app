@@ -1,19 +1,21 @@
 import 'reflect-metadata';
 import { Connection, createConnection } from 'typeorm';
 
+import { logger } from '&utils/logger';
+
 import ormconfig from './ormconfig';
 
 let connection: Connection | undefined = undefined;
 
-const initConnection = async () => {
-  connection = await createConnection(ormconfig);
-};
-
-const getConnection = () => {
-  if (connection == undefined) {
-  } else {
-    return connection;
+export const initConnection = async () => {
+  try {
+    connection = await createConnection(ormconfig);
+    logger.info('Connected to database.');
+  } catch (error) {
+    logger.error(error);
   }
 };
 
-export { initConnection, getConnection };
+export const getConnection = (): Connection | undefined => {
+  return connection;
+};

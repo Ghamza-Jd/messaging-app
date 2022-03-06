@@ -1,4 +1,7 @@
 import { ConnectionOptions } from 'typeorm';
+import { config } from 'dotenv';
+
+config();
 
 const { env } = process;
 
