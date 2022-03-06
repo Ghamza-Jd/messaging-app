@@ -4,7 +4,9 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
+import { User } from './user.entity';
 
 @Entity()
 export class Message {
@@ -26,4 +28,7 @@ export class Message {
     onUpdate: 'CURRENT_TIMESTAMP(6)',
   })
   public updated_at: Date;
+
+  @ManyToOne(() => User, (user) => user.messages)
+  user: User;
 }

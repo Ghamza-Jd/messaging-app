@@ -10,11 +10,13 @@
     "migration:up": "ts-node ./node_modules/.bin/typeorm --config ./src/config/ormconfig.ts migration:run",
     "migration:down": "ts-node ./node_modules/.bin/typeorm --config ./src/config/ormconfig.ts migration:revert",
     "test": "mocha -r ts-node/register -r tsconfig-paths/register ./__test__/**/*.test.ts --exit",
-    "coverage": "nyc --report=text --reporter=text --branches=80 --functions=80 --lines=80 --statements=80 --check-coverage=true npm run test"
+    "coverage": "nyc --report=text --reporter=text --branches=80 --functions=80 --lines=80 --statements=80 --check-coverage=true npm run test",
+    "gen:users": "ts-node -T -r tsconfig-paths/register ./tools/generate-users.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.0",
     "@commitlint/config-conventional": "^12.0.0",
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "@types/axios": "^0.14.0",
     "@types/chai": "^4.2.15",
     "@types/chai-http": "^4.2.0",
