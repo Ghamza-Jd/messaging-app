@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { Connection, createConnection } from 'typeorm';
 
-import { ormconfig } from './ormconfig';
+import ormconfig from './ormconfig';
 
 let connection: Connection | undefined = undefined;
 

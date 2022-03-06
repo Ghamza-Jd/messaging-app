@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Photo {
+export class Message {
   @PrimaryGeneratedColumn()
   id: number;
 

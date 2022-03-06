@@ -2,17 +2,20 @@ import { ConnectionOptions } from 'typeorm';
 
 const { env } = process;
 
-export const ormconfig: ConnectionOptions = {
+const ormconfig: ConnectionOptions = {
   host: env.DB_HOST,
   type: 'mysql',
-  port: parseInt(env.DB_PORT || '3306'),
+  port: parseInt(env.DB_PORT || '3307'),
   username: env.DB_USER,
   password: env.DB_PASS,
   database: env.DB_NAME,
-  entities: ['src/entites/*.entity{.ts,.js}'],
+  entities: ['src/entities/*.entity.ts'],
   migrations: ['src/migrations/*.ts'],
   cli: {
+    entitiesDir: 'src/entities',
     migrationsDir: 'src/migrations',
   },
   synchronize: false,
 };
+
+export default ormconfig;
